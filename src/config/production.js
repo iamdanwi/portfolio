@@ -1,29 +1,31 @@
 export const CONFIG = {
-  // API endpoints
-  API_URL: process.env.REACT_APP_API_URL || 'https://api.dainwi.vercel.app',
+  // Site Info
+  SITE_NAME: "Dainwi Choudhary",
+  SITE_URL: "https://dainwi.vercel.app",
+  SITE_DESCRIPTION: "Full Stack Developer specializing in MERN stack",
   
-  // Analytics
-  GA_TRACKING_ID: process.env.REACT_APP_GA_TRACKING_ID,
+  // Contact Info
+  CONTACT_EMAIL: "iamdainwichoudhary@gmail.com",
+  CONTACT_PHONE: "+91 9905308845",
   
-  // Feature flags
-  ENABLE_BLOG: false,
-  ENABLE_NEWSLETTER: false,
-  
-  // Cache settings
-  CACHE_DURATION: 3600000, // 1 hour
-  
-  // Performance settings
+  // Social Links
+  SOCIAL_LINKS: {
+    LINKEDIN: "https://www.linkedin.com/in/dainwi-choudhary-80612a325/",
+    GITHUB: "https://github.com/dainwi",
+    INSTAGRAM: "https://instagram.com/iamdainwichoudhary"
+  },
+
+  // Performance Settings
+  ENABLE_PWA: true,
   IMAGE_QUALITY: 80,
   LAZY_LOAD_OFFSET: '100px',
+  CACHE_DURATION: 3600000, // 1 hour
   
-  // SEO settings
+  // Feature Flags
+  ENABLE_ANALYTICS: true,
+  ENABLE_ERROR_TRACKING: true,
+  
+  // SEO Settings
   DEFAULT_LANGUAGE: 'en',
-  AVAILABLE_LANGUAGES: ['en', 'hi', 'es', 'fr', 'de'],
-  
-  // Social media
-  SOCIAL_LINKS: {
-    LINKEDIN: 'https://www.linkedin.com/in/dainwi-choudhary-80612a325/',
-    GITHUB: 'https://github.com/dainwi',
-    INSTAGRAM: 'https://instagram.com/iamdainwichoudhary'
-  }
+  AVAILABLE_LANGUAGES: ['en', 'hi', 'es', 'fr', 'de']
 }; 

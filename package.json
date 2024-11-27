@@ -20,16 +20,18 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm run generate-sitemap && react-scripts build",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build && npm run generate-sitemap",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "generate-sitemap": "node src/utils/generateSitemap.js",
-    "postbuild": "npm run generate-sitemap",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "lint": "eslint src/**/*.{js,jsx}",
     "lint:fix": "eslint src/**/*.{js,jsx} --fix",
     "format": "prettier --write src/**/*.{js,jsx,css,md}",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "optimize": "npm run lint:fix && npm run format",
+    "prebuild": "npm run optimize",
+    "postbuild": "npm run generate-sitemap"
   },
   "eslintConfig": {
     "extends": [
