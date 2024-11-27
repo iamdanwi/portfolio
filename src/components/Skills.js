@@ -101,23 +101,23 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-20 bg-slate-50 dark:bg-slate-800">
+    <section id="skills" className="py-12 sm:py-20 bg-slate-50 dark:bg-slate-800">
       <div className="max-w-6xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4 font-serif">
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-3 sm:mb-4 font-serif">
             Skills & Technologies
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
-            A comprehensive overview of my technical expertise and hands-on experience
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+            A comprehensive overview of my technical expertise
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
           {skillCategories.map((category, index) => (
             <motion.div
               key={index}

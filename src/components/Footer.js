@@ -29,22 +29,23 @@ export default function Footer() {
 
   return (
     <footer className="bg-white dark:bg-slate-900 border-t dark:border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="text-center md:text-left">
-            <h3 className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 font-serif mb-4">
+      <div className="max-w-7xl mx-auto px-2 xs:px-4 py-6 xs:py-8 sm:py-12">
+        <div className="grid grid-cols-1 gap-6 xs:gap-8">
+          <div className="text-center">
+            <h3 className="text-lg xs:text-xl sm:text-2xl font-bold text-indigo-600 dark:text-indigo-400 
+                         font-serif mb-2 xs:mb-3 sm:mb-4">
               DC
             </h3>
-            <p className="text-slate-600 dark:text-slate-300 max-w-sm">
+            <p className="text-xs xs:text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-sm mx-auto">
               {t('footer.brand')}
             </p>
           </div>
 
-          <div className="text-center md:text-right">
-            <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">
+          <div className="text-center">
+            <h4 className="text-sm xs:text-base sm:text-lg font-semibold text-slate-900 dark:text-white mb-3 xs:mb-4">
               {t('footer.connect')}
             </h4>
-            <div className="flex justify-center md:justify-end gap-4 mb-6">
+            <div className="flex justify-center gap-3 xs:gap-4 mb-3 xs:mb-4 sm:mb-6">
               {socialLinks.map((link, index) => (
                 <SocialLink
                   key={index}
@@ -58,19 +59,20 @@ export default function Footer() {
             </div>
             <button
               onClick={handleEmailClick}
-              className="text-slate-600 dark:text-slate-300 hover:text-indigo-600 
-                       dark:hover:text-indigo-400 transition-colors cursor-pointer"
+              className="text-xs xs:text-sm sm:text-base text-slate-600 dark:text-slate-300 
+                       hover:text-indigo-600 dark:hover:text-indigo-400 
+                       transition-colors cursor-pointer break-all xs:break-normal"
             >
               iamdainwichoudhary@gmail.com
             </button>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t dark:border-slate-800 text-center">
-          <p className="text-slate-600 dark:text-slate-300 text-sm">
+        <div className="mt-6 xs:mt-8 sm:mt-12 pt-4 xs:pt-6 sm:pt-8 border-t dark:border-slate-800 text-center">
+          <p className="text-[10px] xs:text-xs sm:text-sm text-slate-600 dark:text-slate-300">
             © {currentYear} Dainwi Choudhary. {t('footer.rights')}
           </p>
-          <p className="text-slate-500 dark:text-slate-400 text-sm mt-2">
+          <p className="text-[10px] xs:text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-2">
             {t('footer.location')}
           </p>
         </div>

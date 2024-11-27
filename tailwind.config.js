@@ -23,6 +23,9 @@ module.exports = {
         sans: ['Inter', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
+      screens: {
+        'xs': '424px',
+      },
     },
   },
   plugins: [],

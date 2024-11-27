@@ -64,21 +64,24 @@ function Hero() {
   const { t } = useLanguage();
   
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-4 relative">
+    <section id="home" className="min-h-screen flex items-center justify-center px-2 xs:px-4 relative">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-center max-w-4xl"
+        className="text-center w-full max-w-4xl px-2 xs:px-4 sm:px-6 lg:px-8"
       >
-        <h1 className="text-5xl md:text-7xl font-bold text-slate-900 dark:text-white mb-6 font-serif">
-          {t('hero.greeting')} <span className="text-indigo-600 dark:text-indigo-400">Dainwi Choudhary</span>
+        <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-7xl font-bold text-slate-900 dark:text-white mb-3 xs:mb-4 sm:mb-6 font-serif">
+          {t('hero.greeting')} 
+          <span className="text-indigo-600 dark:text-indigo-400 block xs:inline">
+            Dainwi Choudhary
+          </span>
         </h1>
-        <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-8 font-light">
+        <p className="text-base xs:text-lg sm:text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-4 xs:mb-6 sm:mb-8 font-light">
           {t('hero.title')}
         </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <div className="flex gap-4">
+        <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+          <div className="flex gap-2 xs:gap-4">
             <SocialLink href="https://www.linkedin.com/in/dainwi-choudhary-80612a325/" icon="linkedin" />
             <SocialLink href="https://github.com/dainwi" icon="github" />
             <SocialLink href="https://instagram.com/iamdainwichoudhary" icon="instagram" />
