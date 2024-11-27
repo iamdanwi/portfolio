@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const prettier = require('prettier');
 
 const baseUrl = 'https://dainwi.vercel.app';
 const currentDate = new Date().toISOString().split('T')[0];
@@ -76,11 +75,11 @@ const pages = [
 ];
 
 function generateSitemap() {
+  // Create sitemap XML
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 ${pages.map(page => `
@@ -98,15 +97,15 @@ ${pages.map(page => `
   </url>`).join('')}
 </urlset>`;
 
-  const formattedSitemap = prettier.format(sitemap, { parser: 'xml' });
-
+  // Write sitemap
   fs.writeFileSync(
     path.join(__dirname, '../../public/sitemap.xml'),
-    formattedSitemap
+    sitemap.trim()
   );
 
   console.log('✅ Sitemap generated successfully!');
 
+  // Generate robots.txt
   const robotsTxt = `# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
@@ -138,6 +137,7 @@ Crawl-delay: 1
 # Sitemaps
 Sitemap: ${baseUrl}/sitemap.xml`;
 
+  // Write robots.txt
   fs.writeFileSync(
     path.join(__dirname, '../../public/robots.txt'),
     robotsTxt
@@ -146,4 +146,5 @@ Sitemap: ${baseUrl}/sitemap.xml`;
   console.log('✅ robots.txt generated successfully!');
 }
 
+// Run the generator
 generateSitemap(); 
