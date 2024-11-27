@@ -1,26 +1,56 @@
-[Create a PDF with the following sections]
-
 Dainwi Choudhary
 Full Stack Developer
-ia5danwichoudhary@gmail.com | +91 9905308845
+-----------------
+
+CONTACT
+-------
+Email: ia5danwichoudhary@gmail.com
+Phone: +91 9905308845
 LinkedIn: linkedin.com/in/dainwi-choudhary-80612a325
 GitHub: github.com/dainwi
+Location: India
 
 PROFESSIONAL SUMMARY
 ------------------
-Full Stack Developer with expertise in MERN stack and modern web technologies. Passionate about creating scalable web applications and innovative solutions.
+Passionate Full Stack Developer with expertise in MERN stack and modern web technologies. Skilled in creating scalable web applications with a focus on user experience and performance optimization.
 
 TECHNICAL SKILLS
 --------------
-Frontend: React.js, Next.js, Tailwind CSS, JavaScript (Advanced)
-Backend: Node.js, MongoDB, PostgreSQL, PHP (Intermediate)
-Programming: Python, Java, C++, TypeScript
-Tools & Technologies: Git, Docker, AWS, Linux
-Additional: REST APIs, GraphQL, Redux, CI/CD
+Frontend Development:
+- React.js, Next.js (Advanced)
+- Tailwind CSS, JavaScript (Advanced)
+- Redux, TypeScript (Intermediate)
+
+Backend Development:
+- Node.js, Express.js (Intermediate)
+- MongoDB, PostgreSQL (Intermediate)
+- RESTful APIs, GraphQL (Intermediate)
+
+Programming Languages:
+- Python, Java, C++ (Intermediate)
+- JavaScript/TypeScript (Advanced)
+
+DevOps & Tools:
+- Git, Docker (Intermediate)
+- AWS, Linux (Intermediate)
+- CI/CD, Agile Methodologies
 
 PROJECTS
 --------
-[Include your three main projects with details]
+E-commerce Platform
+- Full-stack e-commerce solution with admin dashboard
+- Technologies: React, Node.js, MongoDB, Redux, Stripe
+- Features: User auth, payment processing, real-time inventory
+
+Task Management System
+- Collaborative project management platform
+- Technologies: Next.js, PostgreSQL, WebSocket
+- Features: Real-time updates, team collaboration
+
+AI Analytics Dashboard
+- Data visualization platform with ML insights
+- Technologies: Python, React, TensorFlow, AWS
+- Features: ML models, real-time processing
 
 EDUCATION
 --------
@@ -31,6 +61,12 @@ LANGUAGES
 English (Professional)
 Hindi (Native)
 
+CERTIFICATIONS
+-------------
+[Any relevant certifications]
+
 INTERESTS
 --------
-Reading, Music, Problem Solving 
+- Reading technical blogs and books
+- Contributing to open-source projects
+- Problem-solving on coding platforms 

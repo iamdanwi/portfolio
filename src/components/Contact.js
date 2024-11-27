@@ -1,18 +1,13 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { EnvelopeIcon, PhoneIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
-import ContactForm from './ContactForm';
-import LoadingState from './LoadingState';
 
 export default function Contact() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   const contactInfo = [
     {
       icon: <EnvelopeIcon className="h-6 w-6" />,
       label: "Email",
-      value: "ia5danwichoudhary@gmail.com",
-      href: "mailto:ia5danwichoudhary@gmail.com",
+      value: "iamdanwichoudhary@gmail.com",
+      href: "mailto:iamdanwichoudhary@gmail.com",
     },
     {
       icon: <PhoneIcon className="h-6 w-6" />,
@@ -78,9 +73,6 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           className="mt-16 text-center"
         >
-          <p className="text-slate-600 dark:text-slate-300 mb-8">
-            Looking forward to hearing from you! Let's create something amazing together.
-          </p>
           <div className="flex justify-center gap-4">
             <motion.a
               href="https://www.linkedin.com/in/dainwi-choudhary-80612a325/"
@@ -95,18 +87,6 @@ export default function Contact() {
             </motion.a>
           </div>
         </motion.div>
-
-        <div className="mt-20 pt-8 border-t border-slate-200 dark:border-slate-700">
-          <p className="text-center text-slate-500 dark:text-slate-400 text-sm">
-            Based in India • Available for Remote Work • Open to Relocation
-          </p>
-        </div>
-
-        {isSubmitting ? (
-          <LoadingState text="Sending message..." />
-        ) : (
-          <ContactForm onSubmitStart={() => setIsSubmitting(true)} />
-        )}
       </div>
     </section>
   );

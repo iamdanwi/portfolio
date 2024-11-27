@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { 
-  CodeBracketIcon, ServerIcon, CommandLineIcon, CpuChipIcon,
-  WindowIcon, CloudIcon, ShieldCheckIcon, PaintBrushIcon 
+  WindowIcon, ServerIcon, CodeBracketIcon, CloudIcon,
+  CpuChipIcon, PaintBrushIcon 
 } from '@heroicons/react/24/outline';
 
 export default function Skills() {
@@ -12,7 +12,7 @@ export default function Skills() {
       color: "from-blue-500 to-cyan-500",
       skills: [
         { name: "React.js", proficiency: "Advanced", projects: 15 },
-        { name: "Next.js", proficiency: "Intermediate", projects: 10 },
+        { name: "Next.js", proficiency: "Intermediate"},
         { name: "Tailwind CSS", proficiency: "Advanced", projects: 20 },
         { name: "JavaScript", proficiency: "Advanced", projects: 25 }
       ]
@@ -22,10 +22,10 @@ export default function Skills() {
       icon: <ServerIcon className="h-8 w-8" />,
       color: "from-purple-500 to-pink-500",
       skills: [
-        { name: "Node.js", proficiency: "Intermediate", projects: 12 },
-        { name: "MongoDB", proficiency: "Intermediate", projects: 10 },
-        { name: "PostgreSQL", proficiency: "Intermediate", projects: 8 },
-        { name: "PHP", proficiency: "Intermediate", projects: 5 }
+        { name: "Node.js", proficiency: "Intermediate"},
+        { name: "MongoDB", proficiency: "Intermediate"},
+        { name: "PostgreSQL", proficiency: "Intermediate"},
+        { name: "PHP", proficiency: "Intermediate"}
       ]
     },
     {
@@ -33,10 +33,10 @@ export default function Skills() {
       icon: <CodeBracketIcon className="h-8 w-8" />,
       color: "from-green-500 to-emerald-500",
       skills: [
-        { name: "Python", proficiency: "Intermediate", projects: 8 },
-        { name: "Java", proficiency: "Intermediate", projects: 6 },
-        { name: "C++", proficiency: "Intermediate", projects: 5 },
-        { name: "TypeScript", proficiency: "Intermediate", projects: 10 }
+        { name: "Python", proficiency: "Intermediate"},
+        { name: "Java", proficiency: "Intermediate" },
+        { name: "C++", proficiency: "Intermediate"},
+        { name: "TypeScript", proficiency: "Intermediate"}
       ]
     },
     {
@@ -44,10 +44,10 @@ export default function Skills() {
       icon: <CloudIcon className="h-8 w-8" />,
       color: "from-orange-500 to-red-500",
       skills: [
-        { name: "Git", proficiency: "Advanced", projects: 30 },
-        { name: "Docker", proficiency: "Intermediate", projects: 5 },
-        { name: "AWS", proficiency: "Intermediate", projects: 4 },
-        { name: "Linux", proficiency: "Intermediate", projects: 15 }
+        { name: "Git", proficiency: "Advanced"},
+        { name: "Docker", proficiency: "Intermediate"},
+        { name: "AWS", proficiency: "Intermediate"},
+        { name: "Linux", proficiency: "Intermediate"}
       ]
     },
     {
@@ -55,10 +55,10 @@ export default function Skills() {
       icon: <CpuChipIcon className="h-8 w-8" />,
       color: "from-pink-500 to-rose-500",
       skills: [
-        { name: "System Design", proficiency: "Intermediate", projects: 8 },
-        { name: "Microservices", proficiency: "Intermediate", projects: 5 },
-        { name: "API Design", proficiency: "Intermediate", projects: 12 },
-        { name: "Performance Optimization", proficiency: "Intermediate", projects: 10 }
+        { name: "System Design", proficiency: "Intermediate"},
+        { name: "Microservices", proficiency: "Intermediate"},
+        { name: "API Design", proficiency: "Intermediate"},
+        { name: "Performance Optimization", proficiency: "Intermediate"}
       ]
     },
     {
@@ -66,10 +66,10 @@ export default function Skills() {
       icon: <PaintBrushIcon className="h-8 w-8" />,
       color: "from-violet-500 to-purple-500",
       skills: [
-        { name: "Figma", proficiency: "Intermediate", projects: 10 },
-        { name: "User Research", proficiency: "Intermediate", projects: 6 },
-        { name: "Prototyping", proficiency: "Intermediate", projects: 8 },
-        { name: "Design Systems", proficiency: "Intermediate", projects: 7 }
+        { name: "Figma", proficiency: "Intermediate"},
+        { name: "User Research", proficiency: "Intermediate" },
+        { name: "Prototyping", proficiency: "Intermediate"},
+        { name: "Design Systems", proficiency: "Intermediate"}
       ]
     }
   ];
@@ -84,6 +84,19 @@ export default function Skills() {
         return 'bg-yellow-500';
       default:
         return 'bg-gray-500';
+    }
+  };
+
+  const getProficiencyWidth = (proficiency) => {
+    switch (proficiency) {
+      case 'Expert':
+        return '100%';
+      case 'Advanced':
+        return '85%';
+      case 'Intermediate':
+        return '65%';
+      default:
+        return '50%';
     }
   };
 
@@ -149,14 +162,10 @@ export default function Skills() {
                       <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
                         <motion.div
                           initial={{ width: 0 }}
-                          whileInView={{ width: '100%' }}
+                          whileInView={{ width: getProficiencyWidth(skill.proficiency) }}
                           transition={{ duration: 1, delay: (index * 0.1) + (skillIndex * 0.1) }}
                           className={`h-full bg-gradient-to-r ${category.color}`}
                         />
-                      </div>
-                      <div className="absolute right-0 top-0 opacity-0 group-hover/skill:opacity-100 
-                                  transition-opacity text-xs text-slate-500 dark:text-slate-400">
-                        {skill.projects} projects
                       </div>
                     </motion.div>
                   ))}

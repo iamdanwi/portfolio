@@ -28,6 +28,7 @@ const itemVariants = {
 export default function Projects() {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [error, setError] = useState(null);
 
   const projects = [
     {
@@ -165,8 +166,25 @@ export default function Projects() {
   ];
 
   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 1000);
+    try {
+      setTimeout(() => setIsLoading(false), 1000);
+    } catch (err) {
+      setError(err);
+      setIsLoading(false);
+    }
   }, []);
+
+  if (error) {
+    return (
+      <section id="projects" className="py-20 bg-slate-50 dark:bg-slate-800">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <p className="text-red-600 dark:text-red-400">
+            Error loading projects. Please try again later.
+          </p>
+        </div>
+      </section>
+    );
+  }
 
   if (isLoading) {
     return (
@@ -215,34 +233,36 @@ export default function Projects() {
             whileInView="visible"
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {projects.map((project, index) => (
+            {projects?.map((project, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
                 className="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-lg 
                          cursor-pointer transform transition-transform duration-300"
-                onClick={() => setSelectedProject(project)}
+                onClick={() => project && setSelectedProject(project)}
               >
                 <div className="aspect-video relative overflow-hidden bg-slate-200 dark:bg-slate-700">
-                  <OptimizedImage
-                    src={project.image}
-                    alt={project.title}
-                    className="object-cover w-full h-full"
-                  />
+                  {project?.image && (
+                    <OptimizedImage
+                      src={project.image}
+                      alt={project.title || 'Project Image'}
+                      className="object-cover w-full h-full"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 </div>
                 
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-2 text-slate-900 dark:text-white">
-                    {project.title}
+                    {project?.title || 'Untitled Project'}
                   </h3>
                   <p className="text-slate-600 dark:text-slate-300 mb-4 line-clamp-2">
-                    {project.description}
+                    {project?.description || 'No description available'}
                   </p>
                   
                   <div className="flex flex-wrap gap-2">
-                    {project.technologies.slice(0, 3).map((tech) => (
+                    {project?.technologies?.slice(0, 3).map((tech) => (
                       <span
                         key={tech}
                         className="px-2 py-1 text-sm font-medium bg-indigo-50 dark:bg-indigo-900/30 
@@ -251,7 +271,7 @@ export default function Projects() {
                         {tech}
                       </span>
                     ))}
-                    {project.technologies.length > 3 && (
+                    {project?.technologies?.length > 3 && (
                       <span className="px-2 py-1 text-sm font-medium text-slate-500 dark:text-slate-400">
                         +{project.technologies.length - 3} more
                       </span>

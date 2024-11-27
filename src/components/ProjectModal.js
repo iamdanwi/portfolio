@@ -22,27 +22,29 @@ export default function ProjectModal({ project, onClose }) {
           onClick={e => e.stopPropagation()}
         >
           <div className="max-w-4xl mx-auto bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-xl">
-            <div className="aspect-video relative">
-              <OptimizedImage
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-cover"
-              />
-              <button
-                onClick={onClose}
-                className="absolute top-4 right-4 p-2 rounded-full bg-white/10 backdrop-blur-sm
+            {project.image && (
+              <div className="aspect-video relative">
+                <OptimizedImage
+                  src={project.image}
+                  alt={project.title || 'Project Image'}
+                  className="w-full h-full object-cover"
+                />
+                <button
+                  onClick={onClose}
+                  className="absolute top-4 right-4 p-2 rounded-full bg-white/10 backdrop-blur-sm
                          hover:bg-white/20 transition-colors"
-              >
-                <XMarkIcon className="w-6 h-6 text-white" />
-              </button>
-            </div>
+                >
+                  <XMarkIcon className="w-6 h-6 text-white" />
+                </button>
+              </div>
+            )}
 
             <div className="p-8">
               <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
-                {project.title}
+                {project.title || 'Untitled Project'}
               </h2>
               <p className="text-lg text-slate-600 dark:text-slate-300 mb-6">
-                {project.description}
+                {project.description || 'No description available'}
               </p>
 
               <div className="grid md:grid-cols-2 gap-8 mb-8">

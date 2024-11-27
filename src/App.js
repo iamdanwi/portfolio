@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navigation from './components/Navigation';
 import { ThemeProvider } from './context/ThemeContext';
-import { LanguageProvider } from './context/LanguageContext';
+import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { BookOpenIcon, MusicalNoteIcon, CodeBracketIcon } from '@heroicons/react/24/outline';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
@@ -15,9 +15,8 @@ import SEO from './components/SEO';
 import LoadingScreen from './components/LoadingScreen';
 import PageTransition from './components/PageTransition';
 import ErrorBoundary from './components/ErrorBoundary';
-import Chatbot from './components/Chatbot';
-import Testimonials from './components/Testimonials';
 import ResumeButton from './components/ResumeButton';
+import Footer from './components/Footer';
 import './App.css';
 
 function App() {
@@ -38,20 +37,19 @@ function App() {
               <LoadingScreen key="loading" />
             ) : (
               <PageTransition key="main">
-                <div className="min-h-screen bg-slate-50 dark:bg-slate-900 relative">
+                <div className="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-900">
                   <BackgroundElements />
                   <ScrollProgress />
                   <Navigation />
-                  <main>
+                  <main className="flex-grow">
                     <Hero />
                     <About />
                     <Skills />
                     <Projects />
-                    <Testimonials />
                     <Contact />
                   </main>
+                  <Footer />
                   <ScrollToTop />
-                  <Chatbot />
                 </div>
               </PageTransition>
             )}
@@ -63,6 +61,8 @@ function App() {
 }
 
 function Hero() {
+  const { t } = useLanguage();
+  
   return (
     <section id="home" className="min-h-screen flex items-center justify-center px-4 relative">
       <motion.div
@@ -72,10 +72,10 @@ function Hero() {
         className="text-center max-w-4xl"
       >
         <h1 className="text-5xl md:text-7xl font-bold text-slate-900 dark:text-white mb-6 font-serif">
-          Hi, I'm <span className="text-indigo-600 dark:text-indigo-400">Dainwi Choudhary</span>
+          {t('hero.greeting')} <span className="text-indigo-600 dark:text-indigo-400">Dainwi Choudhary</span>
         </h1>
         <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-8 font-light">
-          Full Stack Developer & Problem Solver
+          {t('hero.title')}
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <div className="flex gap-4">
@@ -91,21 +91,23 @@ function Hero() {
 }
 
 function About() {
+  const { t } = useLanguage();
+  
   const hobbies = [
     {
       icon: <BookOpenIcon className="h-6 w-6" />,
-      title: "Reading",
-      description: "Exploring new perspectives through books"
+      title: t('about.hobbies.reading'),
+      description: t('about.hobbies.reading.desc')
     },
     {
       icon: <MusicalNoteIcon className="h-6 w-6" />,
-      title: "Music",
-      description: "Finding inspiration in melodies"
+      title: t('about.hobbies.music'),
+      description: t('about.hobbies.music.desc')
     },
     {
       icon: <CodeBracketIcon className="h-6 w-6" />,
-      title: "Coding",
-      description: "Building innovative solutions"
+      title: t('about.hobbies.coding'),
+      description: t('about.hobbies.coding.desc')
     }
   ];
 
@@ -119,13 +121,10 @@ function About() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4 font-serif">
-            About Me
+            {t('about.title')}
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            I am a passionate full-stack developer with a strong foundation in programming and a love 
-            for creating innovative solutions. I specialize in modern web development technologies like 
-            React, Next.js, Tailwind CSS, and PostgreSQL. Beyond coding, I enjoy reading books that 
-            broaden my perspective and listening to music that fuels my creativity.
+            {t('about.description')}
           </p>
         </motion.div>
         

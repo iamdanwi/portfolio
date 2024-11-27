@@ -1,10 +1,8 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { Bars3Icon as MenuIcon, XMarkIcon as XIcon } from '@heroicons/react/24/outline';
+import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import ThemeToggle from './ThemeToggle';
 
 export default function Navigation() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -27,7 +25,7 @@ export default function Navigation() {
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
     if (element) {
-      const navHeight = 64; // Height of the navbar
+      const navHeight = 64;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navHeight;
 
@@ -35,7 +33,6 @@ export default function Navigation() {
         top: offsetPosition,
         behavior: 'smooth'
       });
-      setIsMenuOpen(false);
     }
   };
 
@@ -60,7 +57,6 @@ export default function Navigation() {
               </button>
             </motion.div>
 
-            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-4">
               <div className="flex space-x-4">
                 {navItems.map((item) => (
@@ -80,59 +76,12 @@ export default function Navigation() {
                   </motion.div>
                 ))}
               </div>
-              
-              <ThemeToggle />
             </div>
 
-            {/* Mobile menu button */}
-            <div className="md:hidden flex items-center space-x-2">
-              <ThemeToggle />
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 rounded-md text-slate-700 dark:text-slate-200 hover:bg-slate-100 
-                         dark:hover:bg-slate-800 transition-colors"
-                aria-label="Toggle menu"
-              >
-                {isMenuOpen ? (
-                  <XIcon className="h-6 w-6" />
-                ) : (
-                  <MenuIcon className="h-6 w-6" />
-                )}
-              </button>
-            </div>
+            <ThemeToggle />
           </div>
         </div>
-
-        {/* Mobile menu */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.2 }}
-              className="md:hidden overflow-hidden bg-white dark:bg-slate-900 border-t 
-                       dark:border-slate-800 shadow-lg"
-            >
-              <div className="px-2 pt-2 pb-3 space-y-1">
-                {navItems.map((item) => (
-                  <motion.button
-                    key={item.href}
-                    whileHover={{ x: 4 }}
-                    onClick={() => scrollToSection(item.href)}
-                    className="block w-full text-left px-3 py-2 rounded-md text-base font-medium 
-                             text-slate-700 hover:text-indigo-600 dark:text-slate-200 
-                             dark:hover:text-indigo-400 transition-colors"
-                  >
-                    {item.name}
-                  </motion.button>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </nav>
-      {/* Add a spacer to prevent content from hiding under the navbar */}
       <div className="h-16" />
     </>
   );
