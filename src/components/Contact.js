@@ -1,7 +1,12 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { EnvelopeIcon, PhoneIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
+import ContactForm from './ContactForm';
+import LoadingState from './LoadingState';
 
 export default function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const contactInfo = [
     {
       icon: <EnvelopeIcon className="h-6 w-6" />,
@@ -96,6 +101,12 @@ export default function Contact() {
             Based in India • Available for Remote Work • Open to Relocation
           </p>
         </div>
+
+        {isSubmitting ? (
+          <LoadingState text="Sending message..." />
+        ) : (
+          <ContactForm onSubmitStart={() => setIsSubmitting(true)} />
+        )}
       </div>
     </section>
   );

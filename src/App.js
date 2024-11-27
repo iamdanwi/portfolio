@@ -1,6 +1,8 @@
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Navigation from './components/Navigation';
 import { ThemeProvider } from './context/ThemeContext';
+import { LanguageProvider } from './context/LanguageContext';
 import { BookOpenIcon, MusicalNoteIcon, CodeBracketIcon } from '@heroicons/react/24/outline';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
@@ -10,32 +12,59 @@ import BackgroundElements from './components/BackgroundElements';
 import ScrollProgress from './components/ScrollProgress';
 import ScrollToTop from './components/ScrollToTop';
 import SEO from './components/SEO';
+import LoadingScreen from './components/LoadingScreen';
+import PageTransition from './components/PageTransition';
+import ErrorBoundary from './components/ErrorBoundary';
+import Chatbot from './components/Chatbot';
+import Testimonials from './components/Testimonials';
+import ResumeButton from './components/ResumeButton';
 import './App.css';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <ThemeProvider>
-      <SEO />
-      <div className="min-h-screen bg-slate-50 dark:bg-slate-900 overflow-hidden">
-        <BackgroundElements />
-        <ScrollProgress />
-        <Navigation />
-        <main className="relative">
-          <Hero />
-          <About />
-          <Skills />
-          <Projects />
-          <Contact />
-        </main>
-        <ScrollToTop />
-      </div>
-    </ThemeProvider>
+    <ErrorBoundary>
+      <ThemeProvider>
+        <LanguageProvider>
+          <SEO />
+          <AnimatePresence mode="wait">
+            {isLoading ? (
+              <LoadingScreen key="loading" />
+            ) : (
+              <PageTransition key="main">
+                <div className="min-h-screen bg-slate-50 dark:bg-slate-900 relative">
+                  <BackgroundElements />
+                  <ScrollProgress />
+                  <Navigation />
+                  <main>
+                    <Hero />
+                    <About />
+                    <Skills />
+                    <Projects />
+                    <Testimonials />
+                    <Contact />
+                  </main>
+                  <ScrollToTop />
+                  <Chatbot />
+                </div>
+              </PageTransition>
+            )}
+          </AnimatePresence>
+        </LanguageProvider>
+      </ThemeProvider>
+    </ErrorBoundary>
   );
 }
 
 function Hero() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-4">
+    <section id="home" className="min-h-screen flex items-center justify-center px-4 relative">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -48,10 +77,13 @@ function Hero() {
         <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-8 font-light">
           Full Stack Developer & Problem Solver
         </p>
-        <div className="flex justify-center gap-4">
-          <SocialLink href="https://www.linkedin.com/in/dainwi-choudhary-80612a325/" icon="linkedin" />
-          <SocialLink href="https://github.com/dainwi" icon="github" />
-          <SocialLink href="https://instagram.com/iamdainwichoudhary" icon="instagram" />
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex gap-4">
+            <SocialLink href="https://www.linkedin.com/in/dainwi-choudhary-80612a325/" icon="linkedin" />
+            <SocialLink href="https://github.com/dainwi" icon="github" />
+            <SocialLink href="https://instagram.com/iamdainwichoudhary" icon="instagram" />
+          </div>
+          <ResumeButton />
         </div>
       </motion.div>
     </section>
@@ -104,7 +136,7 @@ function About() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2 }}
-              className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 text-center"
+              className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 text-center hover:shadow-lg transition-shadow"
             >
               <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-indigo-100 dark:bg-indigo-900/30 
                             flex items-center justify-center text-indigo-600 dark:text-indigo-400">
