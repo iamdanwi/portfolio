@@ -7,7 +7,7 @@ export default function BackgroundElements() {
   return (
     <>
       {/* Gradient Orbs */}
-      <div className="fixed inset-0 -z-10 overflow-hidden">
+      <div className="fixed inset-0 -z-50 overflow-hidden pointer-events-none">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.7 }}
@@ -25,13 +25,13 @@ export default function BackgroundElements() {
       </div>
       
       {/* Grid Pattern */}
-      <div className="fixed inset-0 -z-10">
+      <div className="fixed inset-0 -z-40 pointer-events-none">
         <div className="absolute inset-0 bg-grid-slate-200/50 dark:bg-grid-slate-700/20 
                       bg-[size:30px_30px] [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]" />
       </div>
 
       {/* Animated Particles */}
-      <div className="fixed inset-0 -z-5 overflow-hidden">
+      <div className="fixed inset-0 -z-30 overflow-hidden pointer-events-none">
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
@@ -57,7 +57,7 @@ export default function BackgroundElements() {
       </div>
 
       {/* Theme-based Overlay */}
-      <div className="fixed inset-0 -z-10 bg-gradient-to-b from-transparent via-transparent to-slate-50/50 
+      <div className="fixed inset-0 -z-20 bg-gradient-to-b from-transparent via-transparent to-slate-50/50 
                     dark:to-slate-900/50 pointer-events-none" />
     </>
   );

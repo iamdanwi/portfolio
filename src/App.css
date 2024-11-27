@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Interactive elements cursor styles */
+button,
+a,
+[role="button"],
+.cursor-pointer,
+input[type="submit"],
+input[type="button"],
+.interactive {
+  cursor: pointer;
+}
+
+button:disabled,
+input:disabled,
+.disabled {
+  cursor: not-allowed;
+}
+
 /* Custom grid pattern */
 .bg-grid-slate-200\/50 {
   background-image: linear-gradient(to right, rgb(226 232 240 / 0.5) 1px, transparent 1px),
@@ -163,4 +180,13 @@ section {
   margin-right: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+/* Hover effects for interactive elements */
+button:not(:disabled):hover,
+a:hover,
+[role="button"]:hover,
+.cursor-pointer:hover,
+.interactive:hover {
+  @apply transform transition-transform duration-200;
 }

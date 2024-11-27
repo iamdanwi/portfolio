@@ -1,7 +1,31 @@
 import SocialLink from "./SocialLink";
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Footer() {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
+
+  const socialLinks = [
+    {
+      href: "https://www.linkedin.com/in/dainwi-choudhary-80612a325/",
+      icon: "linkedin",
+      ariaLabel: "Visit LinkedIn Profile"
+    },
+    {
+      href: "https://github.com/dainwi",
+      icon: "github",
+      ariaLabel: "Visit GitHub Profile"
+    },
+    {
+      href: "https://instagram.com/iamdainwichoudhary",
+      icon: "instagram",
+      ariaLabel: "Visit Instagram Profile"
+    }
+  ];
+
+  const handleEmailClick = () => {
+    window.location.href = "mailto:iamdainwichoudhary@gmail.com";
+  };
 
   return (
     <footer className="bg-white dark:bg-slate-900 border-t dark:border-slate-800">
@@ -12,37 +36,42 @@ export default function Footer() {
               DC
             </h3>
             <p className="text-slate-600 dark:text-slate-300 max-w-sm">
-              Full Stack Developer specializing in building exceptional digital experiences.
+              {t('footer.brand')}
             </p>
           </div>
 
           <div className="text-center md:text-right">
             <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">
-              Connect
+              {t('footer.connect')}
             </h4>
             <div className="flex justify-center md:justify-end gap-4 mb-6">
-              <SocialLink
-                href="https://www.linkedin.com/in/dainwi-choudhary-80612a325/"
-                icon="linkedin"
-              />
-              <SocialLink href="https://github.com/dainwi" icon="github" />
-              <SocialLink
-                href="https://instagram.com/iamdainwichoudhary"
-                icon="instagram"
-              />
+              {socialLinks.map((link, index) => (
+                <SocialLink
+                  key={index}
+                  href={link.href}
+                  icon={link.icon}
+                  aria-label={link.ariaLabel}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                />
+              ))}
             </div>
-            <p className="text-slate-600 dark:text-slate-300">
-              iamdanwichoudhary@gmail.com
-            </p>
+            <button
+              onClick={handleEmailClick}
+              className="text-slate-600 dark:text-slate-300 hover:text-indigo-600 
+                       dark:hover:text-indigo-400 transition-colors cursor-pointer"
+            >
+              iamdainwichoudhary@gmail.com
+            </button>
           </div>
         </div>
 
         <div className="mt-12 pt-8 border-t dark:border-slate-800 text-center">
           <p className="text-slate-600 dark:text-slate-300 text-sm">
-            © {currentYear} Dainwi Choudhary. All rights reserved.
+            © {currentYear} Dainwi Choudhary. {t('footer.rights')}
           </p>
           <p className="text-slate-500 dark:text-slate-400 text-sm mt-2">
-            Based in India • Available for Remote Work • Open to Relocation
+            {t('footer.location')}
           </p>
         </div>
       </div>
