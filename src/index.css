@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+body {
+    background-color: #011627;
+    font-family: monospace;
+}
+
+.comment {
+    color: #4c657f;
+}
+
+.var {
+    color: #4957c5;
+}
+
+.var_name {
+    color: #38ba97;
+}
+
+.link {
+    color: #c77f78;
+}
