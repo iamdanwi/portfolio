@@ -3,9 +3,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaXTwitter, FaLinkedin, FaGithub } from 'react-icons/fa6';
+import { Mail } from 'lucide-react';
 import Link from 'next/link';
 
 const socialLinks = [
+    {
+        name: 'Email',
+        url: 'mailto:iamdainwichoudahry@gmail.com',
+        icon: Mail,
+        isEmail: true,
+    },
     {
         name: 'Twitter',
         url: 'https://x.com/danwichoudhary',
@@ -24,11 +31,8 @@ const socialLinks = [
 ];
 
 const Contact = () => {
-
     return (
         <section id="contact" className="py-16 px-4 bg-gray-50">
-
-
             <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -53,9 +57,6 @@ const Contact = () => {
                     Feel free to reach out for collaborations or just a friendly hello
                 </motion.p>
 
-                {/* Contact Form */}
-
-
                 <div className="flex justify-center gap-6">
                     {socialLinks.map((link, index) => (
                         <motion.div
@@ -66,8 +67,8 @@ const Contact = () => {
                         >
                             <Link
                                 href={link.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                target={link.isEmail ? '_self' : '_blank'}
+                                rel={link.isEmail ? '' : 'noopener noreferrer'}
                                 className="block p-4 bg-white rounded-xl border border-gray-100 hover:shadow-xl transition-all duration-300 hover:scale-110"
                             >
                                 <link.icon className="w-6 h-6 text-[#333]" />

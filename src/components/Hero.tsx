@@ -23,7 +23,7 @@ const Hero = () => {
           </p>
 
           <div className="flex gap-4 mt-2">
-            <Link href="mailto:danwichoudhary@gmail.com">
+            <Link href="mailto:iamdainwichoudhary@gmail.com">
               <Button className="cursor-pointer px-8 py-6 text-lg bg-[#222] hover:bg-[#333] transition-all hover:scale-105">
                 Book a Call
               </Button>
