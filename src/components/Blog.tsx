@@ -28,27 +28,29 @@ const Blog = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const { data } = await axios.get('https://dev.to/api/articles', {
-          params: {
-            username: 'dainwi',
-            per_page: 3, // Only fetch 3 latest posts
-          },
-          headers: {
-            Accept: 'application/json',
-          },
-        });
-        setPosts(data);
-      } catch (error) {
-        console.error('Error fetching blog posts:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
     fetchPosts();
   }, []);
+
+  const fetchPosts = async () => {
+    try {
+      const { data } = await axios.get('https://dev.to/api/articles', {
+        params: {
+          username: 'dainwi',
+          per_page: 3,
+          sort_by: 'published_at', // Add sorting parameter
+          sort_direction: 'desc'    // Newest first
+        },
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+      setPosts(data);
+    } catch (error) {
+      console.error('Error fetching blog posts:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <section id="blogs" className="py-16 px-4 bg-gray-50">
