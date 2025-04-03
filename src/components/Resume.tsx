@@ -9,6 +9,7 @@ const containerVariants: Variants = {
 };
 
 const experiences = [
+
   {
     title: 'Full-stack Developer Intern',
     company: 'Renderverse',
@@ -27,6 +28,16 @@ const experiences = [
       'Developed responsive web applications',
       'Collaborated with cross-functional teams',
       'Implemented RESTful APIs and database integrations',
+    ],
+  },
+  {
+    title: 'Full-stack Developer',
+    company: 'TripleHash',
+    duration: 'December 2024 - March 2025',
+    description: [
+      'Developed responsive web applications',
+      'Worked on full-stack development projects',
+      'Collaborated with development team on feature implementation',
     ],
   },
 ];
