@@ -37,8 +37,6 @@ const Blog = () => {
         params: {
           username: 'dainwi',
           per_page: 3,
-          sort_by: 'published_at', // Add sorting parameter
-          sort_direction: 'desc'    // Newest first
         },
         headers: {
           Accept: 'application/json',
