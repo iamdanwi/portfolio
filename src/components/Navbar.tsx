@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const navItems = [
-  { name: 'Home', href: '/#hero' },
+  { name: 'Home', href: '/' },
   { name: 'Skills', href: '/#skills' },
   { name: 'Process', href: '/#process' },
   { name: 'Projects', href: '/#projects' },
@@ -51,7 +51,7 @@ const Navbar = () => {
       <nav className="max-w-6xl mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link
-            href="/#hero"
+            href="/"
             className="text-xl md:text-2xl font-[family-name:var(--font-lustria)] text-[#333] font-bold"
           >
             Dainwi Choudhary
