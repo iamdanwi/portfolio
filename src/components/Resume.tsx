@@ -33,7 +33,7 @@ const experiences = [
   {
     title: 'Full-stack Developer',
     company: 'TripleHash',
-    duration: 'December 2024 - March 2025',
+    duration: 'December 2023 - March 2024',
     description: [
       'Developed responsive web applications',
       'Worked on full-stack development projects',
