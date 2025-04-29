@@ -5,7 +5,8 @@ const Navbar = () => {
   return (
     <nav className="flex items-center justify-between my-10 flex-wrap">
       <h1 className="font-raleway md:text-2xl font-medium">
-        DAINWI CHOUDHARY.
+        {/* DAINWI CHOUDHARY. */}
+        DC.
       </h1>
 
       <div className="flex items-center md:text-2xl gap-6 flex-wrap my-2">
