@@ -9,6 +9,17 @@ interface Experience {
 const experiences: Experience[] = [
   {
     id: 1,
+    title: 'Project Manager',
+    company: 'Secpen Labs',
+    duration: 'May 2025 - Present',
+    description: [
+      'Managed cybersecurity projects from planning to deployment',
+      'Coordinated cross-functional teams to meet delivery milestones',
+      'Contributed to open-source initiatives under Secpen Labs',
+    ],
+  },
+  {
+    id: 2,
     title: 'Full-stack Developer Intern',
     company: 'Renderverse',
     duration: 'February 2025 - May 2025',
@@ -19,7 +30,7 @@ const experiences: Experience[] = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: 'Full-stack Developer Intern',
     company: 'Lawazia Tech',
     duration: 'January 2025 - February 2025',
@@ -30,7 +41,7 @@ const experiences: Experience[] = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     title: 'Full-stack Developer',
     company: 'TripleHash',
     duration: 'December 2023 - March 2024',
