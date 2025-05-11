@@ -12,6 +12,14 @@ const projects = [
     gitHub: 'https://github.com/iamdanwi/green-thumb',
     techStack: ['React', 'Next.js', 'Tailwind CSS'],
   },
+  {
+    title: 'FreshGroceries',
+    description:
+      'Fresh Groceries is an online platform offering fresh produce, daily essentials, and convenient delivery with easy, user-friendly navigation.',
+    link: 'https://fresh-groceries.vercel.app',
+    gitHub: 'https://github.com/iamdanwi/ecommerce',
+    techStack: ['React', 'Next.js', 'Tailwind CSS', 'ShadcnUi'],
+  },
 ];
 
 const Projects = () => {
@@ -20,7 +28,7 @@ const Projects = () => {
       <h2 className="text-2xl font-bold mb-6">Projects</h2>
       <div>
         {projects.map((project, index) => (
-          <div key={index}>
+          <div key={index} className="mt-13">
             <h3 className="text-lg font-semibold mb-2">
               {index + 1}. {project.title}
             </h3>
