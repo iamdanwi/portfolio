@@ -1,5 +1,6 @@
 import { FaXTwitter, FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa6';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Navbar = () => {
   return (
@@ -10,6 +11,9 @@ const Navbar = () => {
       </h1>
 
       <div className="flex items-center md:text-2xl gap-6 flex-wrap my-2">
+        <Link href="https://medium.com/@danwichoudhary">
+          <Image src="/medium.svg" alt="LinkedIn" width={32} height={32} />
+        </Link>
         <Link href="https://www.linkedin.com/in/dainwi-choudhary-80612a325/">
           <FaLinkedin />
         </Link>

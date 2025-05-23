@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa6';
 
@@ -15,6 +16,9 @@ const Footer = () => {
 
         <div className="flex flex-col items-center gap-4 md:gap-8 text-xl">
           <nav className="flex space-x-6 -mb-2">
+            <Link href="https://medium.com/@danwichoudhary">
+              <Image src="/medium.svg" alt="Medium" width={32} height={32} />
+            </Link>
             <Link
               href="https://github.com/iamdanwi"
               className="text-foreground hover:text-primary transition-colors"
