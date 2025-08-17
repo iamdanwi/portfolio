@@ -1,54 +1,30 @@
 import { Badge } from '@/components/ui/badge';
 
 const skills = [
-  {
-    title: 'React',
-  },
-  {
-    title: 'Next.js',
-  },
-  {
-    title: 'TypeScript',
-  },
-  {
-    title: 'Tailwind',
-  },
-  {
-    title: 'SwiftUI',
-  },
-  {
-    title: 'SwiftData',
-  },
-  {
-    title: 'SwiftUI',
-  },
-  {
-    title: 'CoreData',
-  },
-  {
-    title: 'Node.js',
-  },
-  {
-    title: 'Express.js',
-  },
-  {
-    title: 'PostgreSQL',
-  },
-  {
-    title: 'MongoDB',
-  },
-  {
-    title: 'FastAPI',
-  },
-  {
-    title: 'Flask',
-  },
-  {
-    title: 'MySQL',
-  },
-  {
-    title: 'Firebase',
-  },
+  // Frontend
+  { title: 'React' },
+  { title: 'Next.js' },
+  { title: 'TypeScript' },
+  { title: 'Tailwind CSS' },
+  { title: 'jQuery' },
+
+  // Backend
+  { title: 'Node.js' },
+  { title: 'Express.js' },
+  { title: 'PHP' },
+  { title: 'FastAPI' },
+  { title: 'Flask' },
+
+  // Databases
+  { title: 'MySQL' },
+  { title: 'PostgreSQL' },
+  { title: 'MongoDB' },
+  { title: 'Firebase' },
+
+  // AI & Integration
+  { title: 'AI/ML Integration' },
+  { title: 'REST APIs' },
+  { title: 'GraphQL' },
 ];
 
 const Skills = () => {
