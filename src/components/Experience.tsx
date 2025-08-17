@@ -10,8 +10,8 @@ const experiences: Experience[] = [
   {
     id: 1,
     title: 'Project Manager',
-    company: 'Secpen Labs',
-    duration: 'May 2025 - Present',
+    company: 'SecPen Labs',
+    duration: 'May 2025 - August 2025',
     description: [
       'Managed cybersecurity projects from planning to deployment',
       'Coordinated cross-functional teams to meet delivery milestones',
@@ -20,7 +20,7 @@ const experiences: Experience[] = [
   },
   {
     id: 2,
-    title: 'Full-stack Developer Intern',
+    title: 'Full Stack Developer',
     company: 'Renderverse',
     duration: 'February 2025 - May 2025',
     description: [
@@ -31,7 +31,7 @@ const experiences: Experience[] = [
   },
   {
     id: 3,
-    title: 'Full-stack Developer Intern',
+    title: 'Full Stack Developer',
     company: 'Lawazia Tech',
     duration: 'January 2025 - February 2025',
     description: [
@@ -42,9 +42,9 @@ const experiences: Experience[] = [
   },
   {
     id: 4,
-    title: 'Full-stack Developer',
+    title: 'Full Stack Developer',
     company: 'TripleHash',
-    duration: 'December 2023 - March 2024',
+    duration: 'January 2024 - June 2024',
     description: [
       'Developed responsive web applications',
       'Worked on full-stack development projects',
@@ -52,6 +52,7 @@ const experiences: Experience[] = [
     ],
   },
 ];
+
 
 export default function ExperienceShowcase() {
   return (
